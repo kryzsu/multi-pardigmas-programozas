@@ -48,6 +48,12 @@ int main(int argc, char *argv[]) {
 
 ## linter, static source code analizer
 
+### clang-tidy
+
+```
+clang-tidy source.c
+```
+
 ## memeory leak detector
 
 Try to find any big fault, semantic problem.
@@ -232,3 +238,83 @@ $2 = 11
 (gdb) p a
 $3 = 10
 ```
+
+
+https://www.softwaretestinghelp.com/memory-leak-detection-tools/
+
+## project tool
+
+### make, nmake
+
+```
+blah: blah.o
+    cc blah.o -o blah # Runs third
+
+blah.o: blah.c
+    cc -c blah.c -o blah.o # Runs second
+
+blah.c:
+    echo "int main() { return 0; }" > blah.c # Runs first
+```
+
+```makefile
+hellomake: hellomake.c hellofunc.c
+     gcc -o hellomake hellomake.c hellofunc.c -I.
+```
+
+```makefile
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+```
+
+```makefile
+clean:
+	rm -f $(ODIR)/*.o
+```
+
+
+### cmake
+
+CMakeLists.txt¶
+
+* main description (separate can be exist in every folder)
+
+suggested steps
+
+1. mkdir build && cd build
+2. cmake .. -DCMAKE_C_COMPILER=gcc
+3. make
+
+
+## Example
+
+
+```
+- project
+  - .gitignore
+  - README.md
+  - LICENCE.md
+  - CMakeLists.txt
+  - cmake
+    - FindSomeLib.cmake
+    - something_else.cmake
+  - include
+    - project
+      - lib.hpp
+  - src
+    - CMakeLists.txt
+    - lib.cpp
+  - apps
+    - CMakeLists.txt
+    - app.cpp
+  - tests
+    - CMakeLists.txt
+    - testlib.cpp
+  - docs
+    - CMakeLists.txt
+  - extern
+    - googletest
+  - scripts
+    - helper.py
+```
+
