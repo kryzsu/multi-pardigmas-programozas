@@ -46,6 +46,12 @@ int main(int argc, char *argv[]) {
 
 ### Eclipse
 
+### Xcode (mac)
+
+* Command Line Tools for Xcode 13 has to be installed
+
+
+
 ## linter, static source code analizer
 
 ### clang-tidy
@@ -278,6 +284,7 @@ clean:
 CMakeLists.txt¶
 
 * main description (separate can be exist in every folder)
+* additional arguments from command line (`cmake .. -DCMAKE_INSTALL_PREFIX=../_install`)
 
 suggested steps
 
@@ -285,6 +292,34 @@ suggested steps
 2. cmake .. -DCMAKE_C_COMPILER=gcc
 3. make
 
+
+typical lib definition
+
+```
+cmake_minimum_required(VERSION 2.8)
+project(libtest_project)
+add_library(test STATIC test.c)
+install(TARGETS test DESTINATION lib)
+install(FILES test.h DESTINATION include)
+```
+
+import the static library for executable
+
+```
+add_library(test SHARED test.c)
+```
+
+```
+cmake_minimum_required(VERSION 2.8)
+project(myapp)
+add_subdirectory(libtest_project)
+add_executable(myapp main.c)
+target_link_libraries(myapp test)
+install(TARGETS myapp DESTINATION bin)
+```
+
+use ExternalProject_Add for 
+including external libraries using other build systems
 
 ## Example
 
