@@ -353,9 +353,13 @@ including external libraries using other build systems
 no, but 
 
 vcpkg
+* c/C++ package management solution
+* json descriptor (dependency)
+* platform independent
+* https://github.com/microsoft/vcpkg#quick-start-unix
 
 
-practice
+### practice: using any dependency
 
 simple source file, main.cpp
 ```c
