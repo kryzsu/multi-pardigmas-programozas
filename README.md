@@ -74,6 +74,11 @@ cmake flow
 5. sudo make install
 
 
+Dependencies
+* library - the implementation
+* header file - declarations
+
+
 ## linter, static source code analizer
 
 ### clang-tidy
@@ -342,6 +347,66 @@ install(TARGETS myapp DESTINATION bin)
 
 use ExternalProject_Add for 
 including external libraries using other build systems
+
+
+## package management
+no, but 
+
+vcpkg
+
+
+practice
+
+simple source file, main.cpp
+```c
+#include <fmt/core.h>
+#include <zlib.h>
+
+int main()
+{
+    fmt::print("fmt version is {}\n"
+               "zlib version is {}\n", 
+               FMT_VERSION, ZLIB_VERSION);
+    return 0;
+}
+```
+
+CMakeLists.txt
+```
+cmake_minimum_required(VERSION 3.18)
+
+project(versionstest CXX)
+
+add_executable(main main.cpp)
+
+find_package(ZLIB REQUIRED)
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(main PRIVATE ZLIB::ZLIB fmt::fmt)
+```
+
+vcpkg.json
+```
+{
+    "name": "versions-test",
+    "version": "1.0.0",
+    "dependencies": [
+        {
+            "name": "fmt",
+            "version>=": "7.1.3#1"
+        }, 
+        "zlib"
+    ],
+    "builtin-baseline": "3426db05b996481ca31e95fff3734cf23e0f51bc"
+}
+```
+
+```
+mk biuld
+cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=../../vcpkg/scripts/buildsystems/vcpkg.cmake  ..
+make
+./main
+```
 
 ## Example
 
