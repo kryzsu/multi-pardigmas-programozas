@@ -51,6 +51,28 @@ int main(int argc, char *argv[]) {
 * Command Line Tools for Xcode 13 has to be installed
 
 
+### making big projects
+1. download the source
+2. dowload all dependencies (lib + header)
+3. compile and install dependencies
+4. compile the source code
+
+Normal flow
+1. make
+2. sudo make install
+
+Extended flow
+1. .configure
+2. make
+3. sudo make install
+
+cmake flow
+1. mkdir build
+2. cd build
+3. cmake 
+4. make
+5. sudo make install
+
 
 ## linter, static source code analizer
 
@@ -352,4 +374,10 @@ including external libraries using other build systems
   - scripts
     - helper.py
 ```
+
+## usefull links
+
+https://notabug.org/mazurov/awesome-c
+
+https://awesomeopensource.com/project/Bfgeshka/awesome-c
 
