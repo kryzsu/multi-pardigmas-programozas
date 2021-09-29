@@ -1,0 +1,1 @@
+double operation(double from);

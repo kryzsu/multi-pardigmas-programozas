@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project(libtest_project)
+add_library(test STATIC test/test.c)
+install(TARGETS test DESTINATION lib)
+install(FILES test/test.h DESTINATION include)

@@ -1,134 +1,12 @@
-# multi-pardigmas-programozas
-
 # C / C++
 
-ugly code
+## debugger
 
-```C
-/*
- * File: hello.c
- */
-#include <stdlib.h>
-#include <string.h>
-
-int main(int argc, char *argv[]) {
-    char *string, *string_so_far;
-    int i, length;     length = 0;
-    for(i=0; i<argc; i++) {
-        length += strlen(argv[i])+1;
-        string = malloc(length+1);
- 
-        /*  * Copy the string built so far. */
-        if(string_so_far != (char *)0)
-            strcpy(string, string_so_far);
-        else *string = '\0';
-        strcat(string, argv[i]);
-        if(i < argc-1) strcat(string, " ");
-        string_so_far = string;
-    }
-    printf("You entered: %s\n", string_so_far);
-    return (0);
-}
-```
-
-## compiler
-### gcc, gxx
-### lcc
-### MS compiler
-
-## ide
-
-### clion
-
-### Visual Studio
-
-### VS code
-
-### Eclipse
-
-### Xcode (mac)
-
-* Command Line Tools for Xcode 13 has to be installed
-
-
-### making big projects
-1. download the source
-2. dowload all dependencies (lib + header)
-3. compile and install dependencies
-4. compile the source code
-
-Normal flow
-1. make
-2. sudo make install
-
-Extended flow
-1. .configure
-2. make
-3. sudo make install
-
-cmake flow
-1. mkdir build
-2. cd build
-3. cmake 
-4. make
-5. sudo make install
-
-
-Dependencies
-* library - the implementation
-* header file - declarations
-
-
-## linter, static source code analizer
-
-### clang-tidy
-
-```
-clang-tidy source.c
-```
-
-## memeory leak detector
-
-Try to find any big fault, semantic problem.
-
-### custom solution
-
-writing out to file the `__FILE__`, `__LINE__` and opinter address
-
-* In case of C: wrapper method for malloc, free
-* C++ override the `new` and `delete` operator
-
-### Valgrind
-
-* linux only
-* command line tool
-* hard to understand
-
-we can
-
-* Finding Invalid Pointer
-* Finding Memory Leaks
-* Detecting The Use Of Uninitialized Variables
-* improper uses of memory
-
-Install
-
-`sudo apt install`
+* special compilation
+* bigger size
 
 ```shell
-./configure
-make
-make install
-```
-
-Using
-
-```shell
-valgrind --tool=memcheck program_name arg1 arg2
-```
-
-```shell
-valgrind --tool=memcheck --leak-check=yes program_name arg1 arg2
+gcc -g source.c
 ```
 
 ```C
@@ -142,50 +20,13 @@ valgrind --tool=memcheck --leak-check=yes program_name arg1 arg2
 
   int main(void)
   {
-     f();
-     return 0;
+    int a = 10;
+    a++;     
+    f();
+    return 0;
   }
 ```
 
-output
-```
-valgrind ./a.out
-==6100== Memcheck, a memory error detector
-==6100== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==6100== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==6100== Command: ./a.out
-==6100==
-==6100== Invalid write of size 4
-==6100==    at 0x10916B: f (in /home/kry/devel/c/a.out)
-==6100==    by 0x109180: main (in /home/kry/devel/c/a.out)
-==6100==  Address 0x4a84068 is 0 bytes after a block of size 40 alloc'd
-==6100==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6100==    by 0x10915E: f (in /home/kry/devel/c/a.out)
-==6100==    by 0x109180: main (in /home/kry/devel/c/a.out)
-==6100==
-==6100==
-==6100== HEAP SUMMARY:
-==6100==     in use at exit: 40 bytes in 1 blocks
-==6100==   total heap usage: 1 allocs, 0 frees, 40 bytes allocated
-==6100==
-==6100== LEAK SUMMARY:
-==6100==    definitely lost: 40 bytes in 1 blocks
-==6100==    indirectly lost: 0 bytes in 0 blocks
-==6100==      possibly lost: 0 bytes in 0 blocks
-==6100==    still reachable: 0 bytes in 0 blocks
-==6100==         suppressed: 0 bytes in 0 blocks
-==6100== Rerun with --leak-check=full to see details of leaked memory
-==6100==
-==6100== For lists of detected and suppressed errors, rerun with: -s
-==6100== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-
-## debugger
-
-special compaliton
-
-```shell
-gcc -g source.c
-```
 
 ### gdb
 
@@ -240,7 +81,7 @@ call myfunction()
 show environment
 set environment varname
 
-#### unbelivable feature
+#### unbelievable feature
 
 reverse running
 
@@ -273,7 +114,6 @@ $3 = 10
 ```
 
 
-https://www.softwaretestinghelp.com/memory-leak-detection-tools/
 
 ## project tool
 
