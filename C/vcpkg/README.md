@@ -2,7 +2,7 @@
 no, but
 
 vcpkg
-* c/C++ package management solution
+* C/C++ package management solution
 * json descriptor (dependency)
 * platform independent
 * https://github.com/microsoft/vcpkg#quick-start-unix
