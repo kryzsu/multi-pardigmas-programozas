@@ -70,6 +70,7 @@ step6
 step7
     packaging
 
+Pls compare the folders to recognize the required modifications
 
 ```shell
 cd Step1_build
