@@ -250,3 +250,8 @@ investigate http application
 ```shell
 apt install tcpflow
 ```
+
+usage
+```shell
+sudo tcpflow -i lo port 8080 -c
+```
