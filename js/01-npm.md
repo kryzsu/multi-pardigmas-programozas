@@ -1,5 +1,6 @@
 
 - [npm](#npm)
+  - [run script](#run-script)
 
 # npm
 
@@ -65,6 +66,12 @@ npm test
        | `---- Minor version. Update for API additions.  
        `------ Major version. Update for breaking API changes. 
 
+update all packages
+
+```shell
+npm update
+```
+
 create new version:
 
 npm has a special command called `npm version` which will update your  
@@ -73,3 +80,20 @@ npm has a special command called `npm version` which will update your
 
 uninstall package: **npm rm PACKAGE** or **npm uninstall** 
 
+
+## run script
+
+```shell
+npm run TASK
+```
+
+```json
+{
+  "scripts": {
+    "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+    "dev": "webpack --progress --colors --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",
+  }
+}
+
+```
