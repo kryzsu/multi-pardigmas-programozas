@@ -39,13 +39,11 @@ npm install PACKAGE
 
 dependency (and related transitive dependency) is installed into the **node_modules** folder.
 package.json ins updated
-
 ```json
 "dependencies": {
     "PACKAGE": "^1.0.2"
   }
 ```
-
 `--save-dev` or `-D` parameter for developer dependency (devDependency of package.json is updated).
 
 f.e.
