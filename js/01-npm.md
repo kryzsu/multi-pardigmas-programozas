@@ -1,6 +1,6 @@
-
 - [npm](#npm)
   - [run script](#run-script)
+  - [npx](#npx)
 
 # npm
 
@@ -48,6 +48,27 @@ package.json ins updated
 
 `--save-dev` or `-D` parameter for developer dependency (devDependency of package.json is updated).
 
+f.e.
+
+installing prettier
+
+```shell
+npm install --save-dev prettier pretty-quick
+```
+
+the outpiut looks like this:
+
+```shell
++ prettier@2.4.1
++ pretty-quick@3.1.1
+added 46 packages from 20 contributors and audited 46 packages in 4.067s
+
+6 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+```
+
 list installed packages:
 
 ```shell
@@ -60,11 +81,11 @@ run tests:
 npm test
 ```
 
-       1.2.3  
-       ^ ^ ^  
-       | | `-- Patch version. Update for every change.  
-       | `---- Minor version. Update for API additions.  
-       `------ Major version. Update for breaking API changes. 
+       1.2.3
+       ^ ^ ^
+       | | `-- Patch version. Update for every change.
+       | `---- Minor version. Update for API additions.
+       `------ Major version. Update for breaking API changes.
 
 update all packages
 
@@ -75,11 +96,10 @@ npm update
 create new version:
 
 npm has a special command called `npm version` which will update your  
-     package.json file for you, and also commit the change to git if your  
-     project is a git repository.
+ package.json file for you, and also commit the change to git if your  
+ project is a git repository.
 
-uninstall package: **npm rm PACKAGE** or **npm uninstall** 
-
+uninstall package: **npm rm PACKAGE** or **npm uninstall**
 
 ## run script
 
@@ -92,8 +112,12 @@ npm run TASK
   "scripts": {
     "watch": "webpack --watch --progress --colors --config webpack.conf.js",
     "dev": "webpack --progress --colors --config webpack.conf.js",
-    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js"
   }
 }
-
 ```
+
+## npx
+
+- use a package without installing
+- run locally installed package
