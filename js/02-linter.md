@@ -1,4 +1,8 @@
+# linters
+
 Linters have two categories of rules
 
 - Formatting rules: eg: max-len, no-mixed-spaces-and-tabs, keyword-spacing, ...
 - Code-quality rules: eg no-unused-vars, no-extra-bind, no-implicit-globals, ...
+
+Prettier for formatting and linters for catching bugs!
