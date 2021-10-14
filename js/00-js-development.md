@@ -89,3 +89,16 @@ https://istanbul.js.org/
 
 - in case of mocha 'nyc'
 - integrated onto jest (--coverage)
+
+## useful npm packages
+
+https://leanylabs.com/blog/npm-packages-for-nodejs/
+https://exceed-team.com/tech/35+-awesome-npm-packages-for-productivity
+
+https://github.com/selfrefactor/rambda
+https://ramdajs.com/
+https://lodash.com/
+https://underscorejs.org/
+https://joi.dev/
+https://www.npmjs.com/package/rimraf
+https://rxjs.dev/
