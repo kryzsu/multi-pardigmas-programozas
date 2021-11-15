@@ -21,6 +21,8 @@
 - js running in the browser (ie, chrome, opera, brave)
 - client side implementation
 
+https://www.w3schools.com/js/js_es6.asp
+
 ## simple http server (node.js)
 
 ```js
